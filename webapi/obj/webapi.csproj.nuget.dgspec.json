@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/angkokleong/Desktop/MindBetter-Backend/webapi/webapi.csproj": {}
+  },
+  "projects": {
+    "/Users/angkokleong/Desktop/MindBetter-Backend/webapi/webapi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/angkokleong/Desktop/MindBetter-Backend/webapi/webapi.csproj",
+        "projectName": "webapi",
+        "projectPath": "/Users/angkokleong/Desktop/MindBetter-Backend/webapi/webapi.csproj",
+        "packagesPath": "/Users/angkokleong/.nuget/packages/",
+        "outputPath": "/Users/angkokleong/Desktop/MindBetter-Backend/webapi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/angkokleong/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/6.0.109/libexec/sdk/6.0.109/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
