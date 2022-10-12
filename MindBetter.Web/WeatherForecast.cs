@@ -1,4 +1,4 @@
-namespace webapi;
+namespace MindBetter.Web;
 
 public class WeatherForecast
 {

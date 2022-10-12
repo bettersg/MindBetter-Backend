@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "webapi": {
+    "MindBetter.Web": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

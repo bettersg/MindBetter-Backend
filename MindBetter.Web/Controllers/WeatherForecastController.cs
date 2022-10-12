@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace webapi.Controllers;
+namespace MindBetter.Web.Controllers;
 
 [ApiController]
 [Route("[controller]")]
