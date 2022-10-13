@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBetter.Web", "MindBetter.Web\MindBetter.Web.csproj", "{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindBetter.Core", "MindBetter.Core\MindBetter.Core.csproj", "{817D2624-8F18-4805-9666-532A66E520F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817D2624-8F18-4805-9666-532A66E520F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817D2624-8F18-4805-9666-532A66E520F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817D2624-8F18-4805-9666-532A66E520F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817D2624-8F18-4805-9666-532A66E520F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
