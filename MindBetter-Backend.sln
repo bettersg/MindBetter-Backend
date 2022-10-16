@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBetter.Web", "MindBetter.Web\MindBetter.Web.csproj", "{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBetter.API", "MindBetter.API\MindBetter.API.csproj", "{E3A00DCA-5FC4-4130-8B29-D22F0A74D0A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindBetter.Core", "MindBetter.Core\MindBetter.Core.csproj", "{817D2624-8F18-4805-9666-532A66E520F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBetter.Core", "MindBetter.Core\MindBetter.Core.csproj", "{817D2624-8F18-4805-9666-532A66E520F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBetter.Infrastructure", "MindBetter.Infrastructure\MindBetter.Infrastructure.csproj", "{7FA36274-CA7D-4590-86D9-F476D0F9AAAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F134E4D9-A07C-4ED1-94A2-FE0E1D87C77F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{392C85C4-24EB-4AA3-A909-A6E7478D3785}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,20 @@ Global
 		{817D2624-8F18-4805-9666-532A66E520F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{817D2624-8F18-4805-9666-532A66E520F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{817D2624-8F18-4805-9666-532A66E520F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA36274-CA7D-4590-86D9-F476D0F9AAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA36274-CA7D-4590-86D9-F476D0F9AAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA36274-CA7D-4590-86D9-F476D0F9AAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA36274-CA7D-4590-86D9-F476D0F9AAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{392C85C4-24EB-4AA3-A909-A6E7478D3785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{392C85C4-24EB-4AA3-A909-A6E7478D3785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{392C85C4-24EB-4AA3-A909-A6E7478D3785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{392C85C4-24EB-4AA3-A909-A6E7478D3785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{392C85C4-24EB-4AA3-A909-A6E7478D3785} = {F134E4D9-A07C-4ED1-94A2-FE0E1D87C77F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DE591B4-EB15-48B7-9B0A-DFCD82E10AEF}
