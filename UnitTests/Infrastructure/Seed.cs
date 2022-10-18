@@ -10,14 +10,14 @@ namespace UnitTests.Infrastructure
         [Fact]
         public void Generate_EnumLookupTable_ReturnListOfEnum()
         {
-            var expected = new List<UserType>
+            var expected = new List<PermissionType>
             {
-                new UserType(UserTypeEnum.Admin),
-                new UserType(UserTypeEnum.Editor),
-                new UserType(UserTypeEnum.Member)
+                new PermissionType(PermissionTypeEnum.Admin),
+                new PermissionType(PermissionTypeEnum.Editor),
+                new PermissionType(PermissionTypeEnum.Member)
             };
 
-            var actual = AppDbContextSeed.GetEnumLookupTable<UserType, UserTypeEnum>().ToList();
+            var actual = AppDbContextSeed.GetEnumLookupTable<PermissionType, PermissionTypeEnum>().ToList();
 
             Assert.Equal(expected, actual);
         }

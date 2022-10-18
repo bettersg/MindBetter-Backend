@@ -19,12 +19,12 @@ namespace MindBetter.Infrastructure.Data
                     appDbContext.Database.Migrate();
                 }
 
-                //// generate enum lookup tables
-                //if (!await appDbContext.UserTypes.AnyAsync())
-                //{
-                //    await appDbContext.UserTypes.AddRangeAsync(GetEnumLookupTable<UserType, UserTypeEnum>());
-                //    await appDbContext.SaveChangesAsync();
-                //}
+                // generate enum lookup tables
+                if (!await appDbContext.UserTypes.AnyAsync())
+                {
+                    await appDbContext.UserTypes.AddRangeAsync(GetEnumLookupTable<PermissionType, PermissionTypeEnum>());
+                    await appDbContext.SaveChangesAsync();
+                }
 
                 //  generate test data
                 if (appDbContext.Database.IsInMemory())

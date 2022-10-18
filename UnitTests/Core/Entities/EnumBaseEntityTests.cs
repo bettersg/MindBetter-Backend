@@ -14,19 +14,19 @@ namespace UnitTests.Core.Entities
         [Fact]
         public void CompareSameClasses_ReturnTrue()
         {
-            Assert.Equal(new UserType(UserTypeEnum.Admin), new UserType(UserTypeEnum.Admin));
+            Assert.Equal(new PermissionType(PermissionTypeEnum.Admin), new PermissionType(PermissionTypeEnum.Admin));
         }
 
         [Fact]
         public void CompareSameClasses_ReturnFalse()
         {
-            Assert.NotEqual(new UserType(UserTypeEnum.Admin), new UserType(UserTypeEnum.Member));
+            Assert.NotEqual(new PermissionType(PermissionTypeEnum.Admin), new PermissionType(PermissionTypeEnum.Member));
         }
 
         [Fact]
         public void CompareDifferentDerivedClasses_ReturnFalse()
         {
-            EnumBaseEntity<UserTypeEnum> ut = new UserType(UserTypeEnum.Admin);
+            EnumBaseEntity<PermissionTypeEnum> ut = new PermissionType(PermissionTypeEnum.Admin);
             EnumBaseEntity<ServiceCategoryEnum> sc = new ServiceCategory(ServiceCategoryEnum.Cat1);
 
             var result = ut.Equals(sc);

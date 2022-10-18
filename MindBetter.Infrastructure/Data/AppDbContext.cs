@@ -10,18 +10,20 @@ namespace MindBetter.Infrastructure.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        //public DbSet<EnumBaseEntity> EnumBaseEntities { get; set; }
         public DbSet<User> Users { get; set; }
-        //public DbSet<UserType> UserTypes { get; set; }
+        public DbSet<PermissionType> UserTypes { get; set; }
+
+        //public DbSet<NPMHO> NPMHOs { get; set; }
+        //public DbSet<Service> Services { get; set; }
+
+        //public DbSet<NPMHOMember> NPMHOMembers { get; set;}
+
+        //public DbSet<ServiceCategory> ServiceCategories { get; set;  }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // TODO - remove abstract class table creation
-            // create tables for abstract classes (EF Core 7 should remove this requirement)
-            modelBuilder.Entity<BaseEntity>().ToTable("BaseEntities");
-
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 

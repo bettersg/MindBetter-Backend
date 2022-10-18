@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace MindBetter.Core.Entities
 {
-    public class UserType : EnumBaseEntity<UserTypeEnum>
+    public class PermissionType : EnumBaseEntity<PermissionTypeEnum>
     {
-       public UserType(UserTypeEnum userTypeEnumVal) : base(userTypeEnumVal)
+       public PermissionType(PermissionTypeEnum enumVal) : base(enumVal)
         {
         }
     }
 
-    public enum UserTypeEnum
+    public enum PermissionTypeEnum
     {
         [Description("Administrator")]
         Admin=1,
