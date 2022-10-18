@@ -7,11 +7,11 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Model
+namespace MindBetter.Core.Model.NPMHOAggregate
 {
     public class PermissionType : EnumBaseEntity<PermissionTypeEnum>
     {
-       public PermissionType(PermissionTypeEnum enumVal) : base(enumVal)
+        public PermissionType(PermissionTypeEnum enumVal) : base(enumVal)
         {
         }
     }
@@ -19,7 +19,7 @@ namespace MindBetter.Core.Model
     public enum PermissionTypeEnum
     {
         [Description("Administrator")]
-        Admin=1,
+        Admin = 1,
         [Description("Editor")]
         Editor,
         [Description("Member")]
