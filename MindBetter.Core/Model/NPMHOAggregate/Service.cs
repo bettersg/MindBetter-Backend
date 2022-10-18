@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Entities.NPMHOAggregate
+namespace MindBetter.Core.Model.NPMHOAggregate
 {
     public class Service : BaseEntity
     {
@@ -13,11 +13,11 @@ namespace MindBetter.Core.Entities.NPMHOAggregate
 
         public ServiceCategory Category { get; private set; }
 
-        public Service(int id, string name, string description, NPMHO npmho, ServiceCategory serviceCategory) : base(id, name)
+        public Service(int id, string name, string description, NPMHO serviceProvider, ServiceCategory serviceCategory) : base(id, name)
         {
             Description = description;
 
-            ServiceProvider = npmho;
+            ServiceProvider = serviceProvider;
             Category = serviceCategory;
         }
 

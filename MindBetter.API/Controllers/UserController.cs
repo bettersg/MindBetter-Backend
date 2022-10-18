@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MindBetter.Core.Entities;
+using MindBetter.Core.Model;
 using MindBetter.Infrastructure.Data;
 
 namespace MindBetter.API.Controllers;

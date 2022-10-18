@@ -1,6 +1,6 @@
 ﻿using MindBetter.Core.Extensions;
 
-namespace MindBetter.Core.Entities
+namespace MindBetter.Core.Model
 {
     public abstract class EnumBaseEntity<T> where T : Enum
     {
@@ -10,11 +10,11 @@ namespace MindBetter.Core.Entities
 
         public string Description { get; set; }
 
-        public EnumBaseEntity (T enumValue)
+        public EnumBaseEntity (T enumVal)
         {
-            EnumVal = enumValue;
-            Name = enumValue.ToString();
-            Description = EnumExtensions.GetDescription(enumValue) ?? string.Empty; 
+            EnumVal = enumVal;
+            Name = enumVal.ToString();
+            Description = EnumExtensions.GetDescription(enumVal) ?? string.Empty; 
         }
 
         public override bool Equals(object? other)

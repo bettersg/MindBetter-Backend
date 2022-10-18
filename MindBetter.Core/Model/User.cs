@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Entities
+namespace MindBetter.Core.Model
 {
     public class User : BaseEntity
     {

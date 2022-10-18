@@ -1,5 +1,5 @@
-﻿using MindBetter.Core.Entities;
-using MindBetter.Core.Entities.NPMHOAggregate;
+﻿using MindBetter.Core.Model;
+using MindBetter.Core.Model.NPMHOAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;

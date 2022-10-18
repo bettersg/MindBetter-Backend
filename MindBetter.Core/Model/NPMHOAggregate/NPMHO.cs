@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MindBetter.Core.Entities.NPMHOAggregate
+﻿namespace MindBetter.Core.Model.NPMHOAggregate
 {
     public class NPMHO : BaseEntity
     {

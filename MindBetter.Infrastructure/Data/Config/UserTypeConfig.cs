@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MindBetter.Core.Entities;
+using MindBetter.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MindBetter.Core.Entities;
+using MindBetter.Core.Model;
 using MindBetter.Core.Extensions;
 using Newtonsoft.Json;
 using System.Reflection;

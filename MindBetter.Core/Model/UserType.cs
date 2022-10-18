@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Entities
+namespace MindBetter.Core.Model
 {
     public class PermissionType : EnumBaseEntity<PermissionTypeEnum>
     {

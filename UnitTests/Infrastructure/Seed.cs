@@ -1,5 +1,5 @@
-﻿using MindBetter.Core.Entities;
-using MindBetter.Core.Entities.NPMHOAggregate;
+﻿using MindBetter.Core.Model;
+using MindBetter.Core.Model.NPMHOAggregate;
 using MindBetter.Infrastructure.Data;
 using Xunit;
 
