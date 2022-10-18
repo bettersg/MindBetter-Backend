@@ -6,16 +6,14 @@
 
         public string? Website { get; protected set; }
 
-        public List<NPMHOMember> Members { get; set; }
+        public List<NPMHOMember> Members { get; set; } = new List<NPMHOMember>();
 
-        public List<Service> Services { get; set; }
+        public List<Service> Services { get; set; } = new List<Service>();
 
         public NPMHO(int id, string name, string? email, string? website) : base(id, name)
         {
             Email = email;
             Website = website;
-            Members = new List<NPMHOMember>();
-            Services = new List<Service>();
         }
     }
 }

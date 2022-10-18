@@ -8,17 +8,14 @@ namespace MindBetter.Core.Model.NPMHOAggregate
 {
     public class Service : BaseEntity
     {
-        public string Description { get; private set; }
-        public NPMHO ServiceProvider { get; private set; }
+        public string Description { get; set; }
+        public NPMHO NPMHO { get;  set; }
 
-        public ServiceCategory Category { get; private set; }
+        public ServiceCategory Category { get; set; }
 
-        public Service(int id, string name, string description, NPMHO serviceProvider, ServiceCategory serviceCategory) : base(id, name)
+        public Service(int id, string name, string description) : base(id, name)
         {
             Description = description;
-
-            ServiceProvider = serviceProvider;
-            Category = serviceCategory;
         }
 
     }

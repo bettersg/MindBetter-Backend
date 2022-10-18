@@ -8,7 +8,7 @@ namespace MindBetter.Core.Model.NPMHOAggregate
 {
     public class ServiceCategory : EnumBaseEntity<ServiceCategoryEnum>
     {
-        public ServiceCategory(ServiceCategoryEnum serviceCategoryEnumVal) : base(serviceCategoryEnumVal)
+        public ServiceCategory(ServiceCategoryEnum enumVal) : base(enumVal)
         {
         }
     }
