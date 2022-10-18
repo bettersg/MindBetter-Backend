@@ -33,6 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\TestData\NPMHOMembers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\TestData\Services.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Data\TestData\NPMHOs.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

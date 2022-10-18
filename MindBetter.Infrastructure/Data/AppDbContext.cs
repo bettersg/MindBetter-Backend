@@ -11,14 +11,14 @@ namespace MindBetter.Infrastructure.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<PermissionType> UserTypes { get; set; }
+        public DbSet<PermissionType> PermissionTypes { get; set; }
 
-        //public DbSet<NPMHO> NPMHOs { get; set; }
-        //public DbSet<Service> Services { get; set; }
+        public DbSet<NPMHO> NPMHOs { get; set; }
+        public DbSet<Service> Services { get; set; }
 
-        //public DbSet<NPMHOMember> NPMHOMembers { get; set;}
-
-        //public DbSet<ServiceCategory> ServiceCategories { get; set;  }
+        public DbSet<NPMHOMember> NPMHOMembers { get; set;}
+        
+        public DbSet<ServiceCategory> ServiceCategories { get; set;  }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
