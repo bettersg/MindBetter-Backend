@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MindBetter.Core.Model;
 using MindBetter.Core.Model.NPMHOAggregate;
 using MindBetter.Infrastructure.Data;
+using System.Net.WebSockets;
 
 namespace MindBetter.API.Controllers;
 
@@ -18,33 +19,39 @@ public class ModelController : ControllerBase
         this._appDbContext = appDbContext;
     }
 
-    [HttpGet("GetUsers")]
-    public IEnumerable<User> GetUsers()
+    [HttpGet("users")]
+    public IEnumerable<User> Users()
     {
         return _appDbContext.Users.ToList();
     }
 
-    [HttpGet("GetPermissionTypes")]
-    public IEnumerable<PermissionType> GetPermissionTypes()
+    [HttpGet("permission-types")]
+    public IEnumerable<PermissionType> PermissionTypes()
     {
         return _appDbContext.PermissionTypes.ToList();
     }
 
-    [HttpGet("GetNPMHOs")]
-    public IEnumerable<NPMHO> GetNPMHOs()
+    [HttpGet("npmhos")]
+    public IEnumerable<NPMHO> NPMHOs()
     {
         return _appDbContext.NPMHOs.ToList();
     }
 
-    [HttpGet("GetServices")]
-    public IEnumerable<Service> GetServices()
+    [HttpGet("services")]
+    public IEnumerable<Service> Services()
     {
         return _appDbContext.Services.ToList();
     }
 
-    [HttpGet("GetNPMHOMembers")]
-    public IEnumerable<NPMHOMember> GetNPMHOMembers()
+    [HttpGet("npmho-members")]
+    public IEnumerable<NPMHOMember> NPMHOMembers()
     {
         return _appDbContext.NPMHOMembers.ToList();
+    }
+
+    [HttpGet("service-categories")]
+    public IEnumerable<ServiceCategory> ServiceCategories()
+    {
+        return _appDbContext.ServiceCategories.ToList();
     }
 }
