@@ -20,13 +20,14 @@ namespace MindBetter.Infrastructure.Data.Config
             //builder.Property(x => x.Category)
             //    .IsRequired();
 
+            builder.Property<int>("NPMHO_Id");
+
             builder.HasOne(s => s.NPMHO)
                 .WithMany(s => s.Services)
                 .HasForeignKey("NPMHO_Id");
 
-            builder.HasOne(s => s.Category)
-                .WithMany()
-                .HasForeignKey("ServiceCategory_Id");
+            builder.Property(s => s.Category)
+                .HasConversion<int>();
         }
     }
 }

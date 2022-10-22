@@ -15,6 +15,14 @@ namespace MindBetter.Infrastructure.Data.Config
 
             builder.Property(x => x.Website)
                 .IsRequired();
+
+            builder.HasMany(x => x.Services)
+                .WithOne(x => x.NPMHO)
+                .IsRequired();
+
+            builder.HasMany(x => x.Members)
+                .WithOne(x => x.Organisation)
+                .IsRequired();
         }
     }
 }

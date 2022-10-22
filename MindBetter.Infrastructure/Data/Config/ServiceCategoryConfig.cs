@@ -12,8 +12,7 @@ namespace MindBetter.Infrastructure.Data.Config
             builder.ToTable("ServiceCategories");
 
             builder.Property(e => e.EnumVal)
-                .HasConversion<int>()
-                .IsRequired();
+                .HasConversion<int>();
 
             builder.HasKey(e => e.EnumVal);
         }

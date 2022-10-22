@@ -15,6 +15,8 @@ namespace MindBetter.Infrastructure.Data.Config
         {
             builder.ToTable("User");
 
+            builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Email)
                 .IsRequired();
 
