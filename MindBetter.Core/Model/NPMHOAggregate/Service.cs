@@ -11,7 +11,7 @@ namespace MindBetter.Core.Model.NPMHOAggregate
         public string Description { get; set; }
         public NPMHO NPMHO { get;  set; }
 
-        public ServiceCategory Category { get; set; }
+        public ServiceCategoryEnum Category { get; set; }
 
         public Service(int id, string name, string description) : base(id, name)
         {
