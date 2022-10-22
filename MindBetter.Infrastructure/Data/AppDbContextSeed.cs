@@ -5,6 +5,7 @@ using MindBetter.Core.Extensions;
 using Newtonsoft.Json;
 using System.Reflection;
 using MindBetter.Core.Model.NPMHOAggregate;
+using System.Runtime.CompilerServices;
 
 namespace MindBetter.Infrastructure.Data
 {
@@ -28,12 +29,14 @@ namespace MindBetter.Infrastructure.Data
                 {
                     await appDbContext.PermissionTypes.AddRangeAsync(GetEnumLookupTable<PermissionType, PermissionTypeEnum>());
                     await appDbContext.SaveChangesAsync();
+
                 }
 
                 if (!await appDbContext.ServiceCategories.AnyAsync())
                 {
                     await appDbContext.ServiceCategories.AddRangeAsync(GetEnumLookupTable<ServiceCategory, ServiceCategoryEnum>());
                     await appDbContext.SaveChangesAsync();
+
                 }
 
                 //  generate test data
@@ -44,23 +47,38 @@ namespace MindBetter.Infrastructure.Data
                     await appDbContext.Users.AddRangeAsync(GetTestEntities<User>(parentDir + @"/Data/TestData/Users.json"));
                     await appDbContext.SaveChangesAsync();
 
+
                     var NPMHOs = GetTestEntities<NPMHO>(parentDir + @"/Data/TestData/NPMHOs.json");
-                    await appDbContext.NPMHOs.AddRangeAsync(NPMHOs);
-                    await appDbContext.SaveChangesAsync();
-
                     var services = GetTestEntities<Service>(parentDir + @"/Data/TestData/Services.json");
+                    var npmhoMembers = GetTestEntities<NPMHOMember>(parentDir + @"/Data/TestData/NPMHOMembers.json");
+
                     var serviceCategories = appDbContext.ServiceCategories.ToList();
-                    services.ToList().ForEach(s => s.NPMHO = NPMHOs.ElementAt(rand.Next(NPMHOs.Count())));
-                    services.ToList().ForEach(s => s.Category = serviceCategories.ElementAt(rand.Next(serviceCategories.Count())));
-                    await appDbContext.Services.AddRangeAsync(services);
+                    var permissions = appDbContext.PermissionTypes.ToList();
+
+                    foreach (var service in services)
+                    {
+                        var npmho = NPMHOs.ElementAt(rand.Next(NPMHOs.Count()));
+                        service.NPMHO = npmho;
+                        //npmho.Services.Add(service);
+
+                        var serviceCategory = serviceCategories.ElementAt(rand.Next(serviceCategories.Count()));
+                        service.Category = serviceCategory.EnumVal;
+                    }
+
+                    foreach(var npmhoMember in npmhoMembers)
+                    {
+                        var npmho = NPMHOs.ElementAt(rand.Next(NPMHOs.Count()));
+                        npmhoMember.Organisation = npmho;
+                        //npmho.Members.Add(npmhoMember);
+
+                        var permission = permissions.ElementAt(rand.Next(permissions.Count()));
+                        npmhoMember.Type = permission.EnumVal;
+                    }
+
+                    await appDbContext.AddRangeAsync(NPMHOs);
                     await appDbContext.SaveChangesAsync();
 
-                    var npmhoMembers = GetTestEntities<NPMHOMember>(parentDir + @"/Data/TestData/NPMHOMembers.json");
-                    var permissions = appDbContext.PermissionTypes.ToList();
-                    npmhoMembers.ToList().ForEach(s => s.Organisation = NPMHOs.ElementAt(rand.Next(NPMHOs.Count())));
-                    npmhoMembers.ToList().ForEach(s => s.Type = permissions.ElementAt(rand.Next(permissions.Count())));
-                    await appDbContext.NPMHOMembers.AddRangeAsync(npmhoMembers);
-                    await appDbContext.SaveChangesAsync();
+
                 }
 
             }
