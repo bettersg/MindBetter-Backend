@@ -25,6 +25,7 @@ namespace MindBetter.Infrastructure.Data.Config
                 // Delete pre-existing data
                 //appDbContext.DeleteAll<User>();
                 //appDbContext.DeleteAll<Member>();
+                //appDbContext.DeleteAll<Service>();
                 //appDbContext.DeleteAll<NonProfit>();
 
                 await appDbContext.Users.AddRangeAsync(GetTestEntities<User>(parentDir + @"/Data/Config/TestData/Users.json"));
@@ -34,6 +35,9 @@ namespace MindBetter.Infrastructure.Data.Config
                 await appDbContext.SaveChangesAsync();
 
                 await appDbContext.NonProfitMembers.AddRangeAsync(GetTestEntities<Member>(parentDir + @"/Data/Config/TestData/Members.json"));
+                await appDbContext.SaveChangesAsync();
+
+                await appDbContext.Services.AddRangeAsync(GetTestEntities<Service>(parentDir + @"/Data/Config/TestData/Services.json"));
                 await appDbContext.SaveChangesAsync();
 #endif
 
