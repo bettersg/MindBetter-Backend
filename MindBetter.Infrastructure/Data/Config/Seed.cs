@@ -35,41 +35,6 @@ namespace MindBetter.Infrastructure.Data.Config
 
                 await appDbContext.NonProfitMembers.AddRangeAsync(GetTestEntities<Member>(parentDir + @"/Data/Config/TestData/Members.json"));
                 await appDbContext.SaveChangesAsync();
-
-                //var NPMHOs = GetTestEntities<NPMHO>(parentDir + @"/Data/TestData/NPMHOs.json");
-                //NonProfit n = new("NP1","test@test.com","www.test.com");
-
-                //Member nm = new("nptestUser@test.com", "nptestUser","fname1","lname1", "Main",PermissionTypeEnum.Admin);
-                
-                //nm.NonProfitId = n.Id;
-
-                /*
-                var services = GetTestEntities<Service>(parentDir + @"/Data/TestData/Services.json");
-                var npmhoMembers = GetTestEntities<NPMHOMember>(parentDir + @"/Data/TestData/NPMHOMembers.json");
-
-                var serviceCategories = appDbContext.ServiceCategories.ToList();
-                var permissions = appDbContext.PermissionTypes.ToList();
-
-                foreach (var service in services)
-                {
-                    var npmho = NPMHOs.ElementAt(rand.Next(NPMHOs.Count()));
-                    service.NPMHO = npmho;
-                    //npmho.Services.Add(service);
-
-                    var serviceCategory = serviceCategories.ElementAt(rand.Next(serviceCategories.Count()));
-                    service.Category = serviceCategory.EnumVal;
-                }
-
-                foreach(var npmhoMember in npmhoMembers)
-                {
-                    var npmho = NPMHOs.ElementAt(rand.Next(NPMHOs.Count()));
-                    npmhoMember.Organisation = npmho;
-                    //npmho.Members.Add(npmhoMember);
-
-                    var permission = permissions.ElementAt(rand.Next(permissions.Count()));
-                    npmhoMember.Type = permission.EnumVal;
-                }
-                */
 #endif
 
             }
@@ -103,7 +68,7 @@ namespace MindBetter.Infrastructure.Data.Config
         }
 
         public static void DeleteAll<T>(this DbContext context)
-      where T : class
+            where T : class
         {
             foreach (var p in context.Set<T>())
             {

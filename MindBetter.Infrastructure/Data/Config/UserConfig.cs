@@ -23,7 +23,6 @@ namespace MindBetter.Infrastructure.Data.Config
             builder.Property(u => u.FirstName)
                 .HasMaxLength(50);
 
-
             builder.Property(u => u.LastName)
                 .HasMaxLength(50);
         }
