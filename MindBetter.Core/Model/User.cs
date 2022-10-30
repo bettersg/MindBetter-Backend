@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 
 namespace MindBetter.Core.Model
 {
-    public class User : BaseEntity
+    public class User
     {
+        public int Id { get; set; }
         public string Email { get; set; }
+        public string UserName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
 
-        public string LoginName { get; set; } 
-
-        public User(int id, string name, string email, string loginName) : base(id, name)
+        public User(string email, string userName, string firstName, string lastName)
         {
             Email = email;
-            LoginName = loginName;
+            UserName = userName;
+            FirstName = firstName;
+            LastName = lastName;
         }
-
     }
 }

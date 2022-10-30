@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MindBetter.Infrastructure.Data;
+using MindBetter.Infrastructure.Data.Config;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -23,27 +24,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("MindBetter.TestDb"));
+builder.Services.AddDbContext<AppDbContext>(
+    opt => opt.UseSqlite(
+        "Data Source=MindBetterTest.db",
+        b => b.MigrationsAssembly("MindBetter.Infrastructure")));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        context.Database.EnsureDeleted();
+        context.Database.Migrate();
+        await Seed.SeedAsync(context, app.Logger);
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogInformation($"Migration on startup failed {ex}");
+    }
+}
 
 app.Logger.LogInformation("App created...");
 
 app.Logger.LogInformation("Seeding Database...");
-
-using (var scope = app.Services.CreateScope())
-{
-    var scopedProvider = scope.ServiceProvider;
-    try
-    {
-        var appDbContext = scopedProvider.GetRequiredService<AppDbContext>();
-        await AppDbContextSeed.SeedAsync(appDbContext, app.Logger);
-    }
-    catch (Exception ex)
-    {
-        app.Logger.LogError(ex, "An error occurred seeding the DB.");
-    }
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -7,11 +7,11 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Model.NPMHOAggregate
+namespace MindBetter.Core.Model.NonProfitAggregate
 {
-    public class PermissionType : EnumBaseEntity<PermissionTypeEnum>
+    public class PermissionTypeLookup : LookupBase<PermissionTypeEnum>
     {
-        public PermissionType(PermissionTypeEnum enumVal) : base(enumVal)
+        public PermissionTypeLookup(PermissionTypeEnum enumVal) : base(enumVal)
         {
         }
     }

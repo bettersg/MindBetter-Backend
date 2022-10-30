@@ -1,5 +1,5 @@
 ﻿using MindBetter.Core.Model;
-using MindBetter.Core.Model.NPMHOAggregate;
+using MindBetter.Core.Model.NonProfitAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +14,20 @@ namespace UnitTests.Core.Entities
         [Fact]
         public void CompareSameClasses_ReturnTrue()
         {
-            Assert.Equal(new PermissionType(PermissionTypeEnum.Admin), new PermissionType(PermissionTypeEnum.Admin));
+            Assert.Equal(new PermissionTypeLookup(PermissionTypeEnum.Admin), new PermissionTypeLookup(PermissionTypeEnum.Admin));
         }
 
         [Fact]
         public void CompareSameClasses_ReturnFalse()
         {
-            Assert.NotEqual(new PermissionType(PermissionTypeEnum.Admin), new PermissionType(PermissionTypeEnum.Member));
+            Assert.NotEqual(new PermissionTypeLookup(PermissionTypeEnum.Admin), new PermissionTypeLookup(PermissionTypeEnum.Member));
         }
 
         [Fact]
         public void CompareDifferentDerivedClasses_ReturnFalse()
         {
-            EnumBaseEntity<PermissionTypeEnum> ut = new PermissionType(PermissionTypeEnum.Admin);
-            EnumBaseEntity<ServiceCategoryEnum> sc = new ServiceCategory(ServiceCategoryEnum.Cat1);
+            LookupBase<PermissionTypeEnum> ut = new PermissionTypeLookup(PermissionTypeEnum.Admin);
+            LookupBase<ServiceCategoryEnum> sc = new ServiceCategoryLookup(ServiceCategoryEnum.Cat1);
 
             var result = ut.Equals(sc);
             

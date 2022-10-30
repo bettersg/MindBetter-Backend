@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MindBetter.Core.Model.NPMHOAggregate;
+using MindBetter.Core.Model.NonProfitAggregate;
 
 
 namespace MindBetter.Infrastructure.Data.Config
@@ -9,22 +9,20 @@ namespace MindBetter.Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Service> builder)
         {
-            builder.ToTable("Services");
+            builder.ToTable("Service");
 
-            builder.Property(x => x.Description)
+            builder.HasKey(s => s.Id);
+
+            builder.Property(s => s.Name)
+                .HasMaxLength(100)
                 .IsRequired();
 
-            //builder.Property(x => x.ServiceProvider)
-            //    .IsRequired();
+            builder.Property(x => x.Description)
+                .HasMaxLength(300);
 
-            //builder.Property(x => x.Category)
-            //    .IsRequired();
-
-            builder.Property<int>("NPMHO_Id");
-
-            builder.HasOne(s => s.NPMHO)
+            builder.HasOne(s => s.NonProfit)
                 .WithMany(s => s.Services)
-                .HasForeignKey("NPMHO_Id");
+                .HasForeignKey(s => s.NonProfitId);
 
             builder.Property(s => s.Category)
                 .HasConversion<int>();

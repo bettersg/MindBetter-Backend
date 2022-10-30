@@ -1,30 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MindBetter.Core.Model;
-using MindBetter.Core.Model.NPMHOAggregate;
-using MindBetter.Infrastructure.Data.Config;
+using MindBetter.Core.Model.NonProfitAggregate;
 using System.Reflection;
 
 namespace MindBetter.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
         public DbSet<User> Users { get; set; }
-        public DbSet<PermissionType> PermissionTypes { get; set; }
-
-        public DbSet<NPMHO> NPMHOs { get; set; }
+        public DbSet<PermissionTypeLookup> PermissionTypes { get; set; }
+        public DbSet<NonProfit> NonProfits { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<Member> NonProfitMembers { get; set; }
+        public DbSet<ServiceCategoryLookup> ServiceCategories { get; set; }
 
-        public DbSet<NPMHOMember> NPMHOMembers { get; set;}
-        
-        public DbSet<ServiceCategory> ServiceCategories { get; set;  }
-
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+
         }
 
     }

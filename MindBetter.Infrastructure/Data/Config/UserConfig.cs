@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MindBetter.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MindBetter.Infrastructure.Data.Config
 {
@@ -15,13 +10,22 @@ namespace MindBetter.Infrastructure.Data.Config
         {
             builder.ToTable("User");
 
-            builder.HasKey(x => x.Id);
+            builder.HasKey(u => u.Id);
 
-            builder.Property(x => x.Email)
+            builder.Property(u => u.Email)
+                .HasMaxLength(100)
                 .IsRequired();
 
-            builder.Property(x => x.LoginName)
+            builder.Property(u => u.UserName)
+                .HasMaxLength(50)
                 .IsRequired();
+
+            builder.Property(u => u.FirstName)
+                .HasMaxLength(50);
+
+
+            builder.Property(u => u.LastName)
+                .HasMaxLength(50);
         }
     }
 }

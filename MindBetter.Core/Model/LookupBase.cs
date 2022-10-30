@@ -2,7 +2,7 @@
 
 namespace MindBetter.Core.Model
 {
-    public abstract class EnumBaseEntity<T> where T : Enum
+    public abstract class LookupBase<T> where T : Enum
     {
         public virtual T EnumVal { get; set; }
 
@@ -10,7 +10,7 @@ namespace MindBetter.Core.Model
 
         public string Description { get; set; }
 
-        public EnumBaseEntity (T enumVal)
+        public LookupBase (T enumVal)
         {
             EnumVal = enumVal;
             Name = enumVal.ToString();
@@ -29,7 +29,7 @@ namespace MindBetter.Core.Model
                 return false;
             }
 
-            var typedOther = (EnumBaseEntity<T>) other;
+            var typedOther = (LookupBase<T>) other;
             
             return this.EnumVal.Equals(typedOther.EnumVal);
         }

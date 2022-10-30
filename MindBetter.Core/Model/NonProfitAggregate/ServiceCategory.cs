@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MindBetter.Core.Model.NPMHOAggregate
+namespace MindBetter.Core.Model.NonProfitAggregate
 {
-    public class ServiceCategory : EnumBaseEntity<ServiceCategoryEnum>
+    public class ServiceCategoryLookup : LookupBase<ServiceCategoryEnum>
     {
-        public ServiceCategory(ServiceCategoryEnum enumVal) : base(enumVal)
+        public ServiceCategoryLookup(ServiceCategoryEnum enumVal) : base(enumVal)
         {
         }
     }
