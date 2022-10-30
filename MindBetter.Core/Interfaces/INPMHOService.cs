@@ -1,9 +1,4 @@
 ﻿using MindBetter.Core.Model.NonProfitAggregate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MindBetter.Core.Interfaces
 {

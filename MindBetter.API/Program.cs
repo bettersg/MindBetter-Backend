@@ -38,7 +38,7 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<AppDbContext>();
 #if DEBUG
-        context.Database.EnsureDeleted(); 
+        context.Database.EnsureDeleted();
 #endif
         context.Database.Migrate();
         await Seed.SeedAsync(context, app.Logger);

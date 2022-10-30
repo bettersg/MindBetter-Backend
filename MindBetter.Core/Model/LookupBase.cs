@@ -6,15 +6,15 @@ namespace MindBetter.Core.Model
     {
         public virtual T EnumVal { get; set; }
 
-        public virtual string Name { get; set; }  
+        public virtual string Name { get; set; }
 
         public string Description { get; set; }
 
-        public LookupBase (T enumVal)
+        public LookupBase(T enumVal)
         {
             EnumVal = enumVal;
             Name = enumVal.ToString();
-            Description = EnumExtensions.GetDescription(enumVal) ?? string.Empty; 
+            Description = EnumExtensions.GetDescription(enumVal) ?? string.Empty;
         }
 
         public override bool Equals(object? other)
@@ -29,8 +29,8 @@ namespace MindBetter.Core.Model
                 return false;
             }
 
-            var typedOther = (LookupBase<T>) other;
-            
+            var typedOther = (LookupBase<T>)other;
+
             return this.EnumVal.Equals(typedOther.EnumVal);
         }
 
