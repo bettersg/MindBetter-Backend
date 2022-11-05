@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MindBetter.Infrastructure.Data;
 using MindBetter.Infrastructure.Data.Config;
+using MindBetter.Infrastructure.Data.Services;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -18,7 +19,6 @@ builder.Services.AddCors(options =>
 });
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -28,6 +28,9 @@ builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseSqlite(
         "Data Source=MindBetterTest.db",
         b => b.MigrationsAssembly("MindBetter.Infrastructure")));
+
+builder.Services.AddScoped<INonProfitRepository, NonProfitRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

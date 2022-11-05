@@ -10,11 +10,8 @@ namespace MindBetter.Infrastructure.Data.Config
 {
     public static class Seed
     {
-        private static int _seed = 1;
         public static async Task SeedAsync(AppDbContext appDbContext, ILogger logger, int retry = 0)
         {
-            var rand = new Random(_seed);
-
             var retryForAvailability = retry;
             try
             {

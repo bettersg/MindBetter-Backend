@@ -49,7 +49,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
-    <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
 </Project>
