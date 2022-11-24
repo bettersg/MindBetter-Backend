@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindBetter.API.Dtos;
 using MindBetter.Infrastructure.Data.Services;
@@ -7,6 +8,7 @@ namespace MindBetter.API.Controllers
 {
     [ApiController]
     [Route("api/nmphos")]
+    [Authorize]
     public class NonProfitsController : ControllerBase
     {
         private readonly INonProfitRepository _nonProfitRepository;

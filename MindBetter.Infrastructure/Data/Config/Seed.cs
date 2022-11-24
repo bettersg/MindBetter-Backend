@@ -41,7 +41,7 @@ namespace MindBetter.Infrastructure.Data.Config
             }
             catch (Exception ex)
             {
-                // TODO: make rety limit a setting.
+                // TODO: make retry limit a setting.
                 if (retryForAvailability >= 10) throw;
 
                 retryForAvailability++;

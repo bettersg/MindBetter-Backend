@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "fcce2b0c-88ce-45d7-ae1c-efef1c2caa9a",
+		"name": "MindBetter API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST User Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-T",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\" : \"Test1\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:{{portNumber}}/api/authentication/authenticate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "{{portNumber}}",
+					"path": [
+						"api",
+						"authentication",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET NPMHOs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET NPMHO",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET NPMHO (not found)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "portNumber",
+			"value": "7065",
+			"type": "default"
+		}
+	]
+}

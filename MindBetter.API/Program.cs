@@ -1,11 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MindBetter.Infrastructure.Data;
 using MindBetter.Infrastructure.Data.Config;
 using MindBetter.Infrastructure.Data.Services;
+using System.Text;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 builder.Logging.AddConsole();
 
@@ -30,7 +33,24 @@ builder.Services.AddDbContext<AppDbContext>(
         b => b.MigrationsAssembly("MindBetter.Infrastructure")));
 
 builder.Services.AddScoped<INonProfitRepository, NonProfitRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Authentication providers
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Authentication:Issuer"],
+            ValidAudience = builder.Configuration["Authentication:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))
+        };
+    });
 
 var app = builder.Build();
 
@@ -66,6 +86,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors(MyAllowSpecificOrigins);
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
